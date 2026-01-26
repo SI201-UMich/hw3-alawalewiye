@@ -313,7 +313,7 @@ def test():
         with redirect_stdout(buf8):
             box8.tally_distribution()
         printed8 = buf8.getvalue()
-        check("coupon: MiXeD is distributed 2 times." in printed8,
+        check("MiXeD distribution count: 2." in printed8,
               "tally_distribution: prints correct format with mixed case")
 
         # Test multiple coupons with same count (should stay in original order)
@@ -389,7 +389,7 @@ def test():
         with redirect_stdout(buf_tally_main):
             box_tally_main.tally_distribution()
         tally_output = buf_tally_main.getvalue()
-        check("is distributed" in tally_output, 
+        check("distribution count:" in tally_output, 
               "tally_distribution: output format correct for main() display")
     except Exception as e:
         check(False, f"tally_distribution in main: unexpected exception {e}")
