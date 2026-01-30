@@ -97,7 +97,7 @@ class CouponDispenser:
         round_number = 1
         while True:
             user_input = input(
-                f"Round <round_number> - Enter a name (or a comma-separated list), or type 'show' or 'exit':"
+                f"Round {round_number} - Enter a name (or a comma-separated list), or type 'show' or 'exit':"
             )
 
             if user_input == "exit":
