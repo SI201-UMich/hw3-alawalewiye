@@ -1,6 +1,6 @@
-# Name:
-# Student ID:
-# Email:
+# Name: Olawale Alawiye
+# Student ID: 07549839
+# Email: alawiye@umich.edu
 # Who or what you worked with on this homework (including generative AI like ChatGPT):
 # If you worked with generative AI also add a statement for how you used it.
 # e.g.:
@@ -12,6 +12,7 @@ import random
 import io
 from contextlib import redirect_stdout
 
+print("lala")
 
 class CouponDispenser:
     """
