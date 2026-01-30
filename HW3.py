@@ -66,6 +66,16 @@ class CouponDispenser:
             str: message as described above
         """
         # TODO: Implement per instructions
+        if not self.coupon_cards:
+            return "The box is empty"
+        if name in self.customer_roster:
+            i = self.customer_roster.index(name)
+            existing_coupon = self.coupon_cards[self.issued_indices[i]]
+            return f"That name already has a coupon: <coupon>"
+        random_index = random.randint(0, len(self.coupon_cards) - 1)
+        self.customer_roster.append(name)
+        self.issued_indices.append(random_index)
+        return self.coupon_cards[random_index]
         pass
 
     def distribute_session(self):
@@ -84,6 +94,30 @@ class CouponDispenser:
         Reminder: Use lists only (no dictionaries).
         """
         # TODO: Implement per instructions 
+        round_number = 1
+        while True:
+            user_input = input(
+                f"Round <round_number> - Enter a name (or a comma-separated list), or type 'show' or 'exit':"
+            )
+
+            if user_input == "exit":
+                print("Goodbye!")
+                break
+
+            elif user_input == "show":
+                for i, name in enumerate(self.customer_roster):
+                    coupon = self.coupon_cards[self.issued_indices[i]]
+                    print(f"<name>: <coupon>")
+            
+            else:
+                pieces = user_input.split(", ")
+                for text in pieces:
+                    stripped_text = text.strip()
+                    if stripped_text:
+                        result = self.issue_coupon(stripped_text)
+                        print(result)
+            
+            round_number += 1
         pass
 
     def tally_distribution(self):
@@ -102,6 +136,13 @@ class CouponDispenser:
             None
         """
         # TODO: Implement per instructions
+        if not self.issued_indicies:
+            print("Empty")
+            return
+        for i, coupon in enumerate(self.coupon_cards):
+            count = self.issued_indices.count(i)
+            print(f"<coupon> distribution count: <count>.")
+        return
         pass
 
 
