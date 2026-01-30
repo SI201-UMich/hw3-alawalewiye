@@ -12,8 +12,6 @@ import random
 import io
 from contextlib import redirect_stdout
 
-print("lala")
-
 class CouponDispenser:
     """
     CouponDispenser manages a box of coupon cards and assigns one coupon
@@ -34,6 +32,9 @@ class CouponDispenser:
             coupon_cards (list[str]): list of possible coupons users can receive.
         """
         # TODO: Implement per instructions
+        self.coupon_cards = coupon_cards
+        self.customer_roster = []
+        self.issued_indices = []
         pass
 
     def __str__(self):
@@ -45,6 +46,9 @@ class CouponDispenser:
             str
         """
         # TODO: Implement per instructions
+        if not self.coupon_cards:
+            return ""
+        return "|".join(self.coupon_cards)
         pass
 
     def issue_coupon(self, name):
