@@ -71,7 +71,7 @@ class CouponDispenser:
         if name in self.customer_roster:
             i = self.customer_roster.index(name)
             existing_coupon = self.coupon_cards[self.issued_indices[i]]
-            return f"That name already has a coupon: <coupon>"
+            return f"That name already has a coupon: {existing_coupon}"
         random_index = random.randint(0, len(self.coupon_cards) - 1)
         self.customer_roster.append(name)
         self.issued_indices.append(random_index)
@@ -107,10 +107,10 @@ class CouponDispenser:
             elif user_input == "show":
                 for i, name in enumerate(self.customer_roster):
                     coupon = self.coupon_cards[self.issued_indices[i]]
-                    print(f"<name>: <coupon>")
+                    print(f"{name}: {coupon}")
             
             else:
-                pieces = user_input.split(", ")
+                pieces = user_input.split(",")
                 for text in pieces:
                     stripped_text = text.strip()
                     if stripped_text:
@@ -136,12 +136,12 @@ class CouponDispenser:
             None
         """
         # TODO: Implement per instructions
-        if not self.issued_indicies:
+        if not self.issued_indices:
             print("Empty")
             return
         for i, coupon in enumerate(self.coupon_cards):
             count = self.issued_indices.count(i)
-            print(f"<coupon> distribution count: <count>.")
+            print(f"{coupon} distribution count: {count}.")
         return
         pass
 
